@@ -8,15 +8,18 @@ import reactRefresh from 'eslint-plugin-react-refresh';
 import prettier from 'eslint-plugin-prettier';
 
 export default [
-  {
-    ignores: ['dist', '.eslintrc.cjs', 'vite.config.ts'],
-  },
+  { ignores: ['dist', '.eslintrc.cjs', 'vite.config.ts'] },
   js.configs.recommended,
   {
     languageOptions: {
       parser: tsparser,
       sourceType: 'module',
       ecmaVersion: 'latest',
+      globals: {
+        document: 'readonly',
+        window: 'readonly',
+        navigator: 'readonly',
+      },
     },
     plugins: {
       '@typescript-eslint': tseslint,
